@@ -14,3 +14,17 @@ Un cop comenceu heu de canviar aquesta explicació amb la corresponent al vostre
  * Petita descripció
  * URL de producció (quan la tingueu)
  * Estat: (explicació de en quin punt està)
+
+FUNCIONALIDADES DEL PROYECTO
+1. Login del usuario.
+2. Mostrar las películas que tenemos.
+3. Obtener las películas del omdb.
+4. Guardar las películas que busque el usuario en una BD.
+5. Agregar puntuaciones y comentrarios.
+6. Ver ficha técnica de la película que busque el usuario.
+7. Juego con 5 preguntas sobre películas.
+
+MIEMBROS DEL PROYECTO
+1. Camilo Pérez Morán
+2. Marc Castro Trullà
+3. Dylan Vargas García
