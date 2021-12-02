@@ -24,7 +24,7 @@ Un cop comenceu heu de canviar aquesta explicació amb la corresponent al vostre
 6. Ver ficha técnica de la película que busque el usuario.
 7. Juego con 5 preguntas sobre películas.
 
-# Miembros del proyecto
+## Miembros del proyecto
 * Camilo Pérez Morán
 * Marc Castro Trullà
 * Dylan Vargas García
