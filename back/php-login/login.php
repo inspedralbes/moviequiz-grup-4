@@ -14,7 +14,6 @@
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     $message = '';
-
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['user_id'] = $results['id'];
       header("Location: /php-login");
