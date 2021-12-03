@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <title>InfoMovie</title>
+    <title>InfoFilms</title>
 </head>
 <body>
-    <div class="logo">
-        <h5>Logo</h5>
-        <a href="../back/php-login/index.php">Log in</a>
+    <div class="header">
+        <p class="logo">Logo</p>
+        <button class="boton" type="button"><a class="register" href="../back/php-login/Register_Login.php">Log in</a></button>
     </div>
     <center>
-        <h1>InfoMovie</h1>
+        <h1>InfoFilms</h1>
     </center>
     <div class="buscador">
         <center>
-            <input type="text" id="peli" name="peli" value="">
+            <div class="row">
+                <form class="col s12">
+                    <input type="text" id="peli" name="peli" value="">
+                </form>
+            </div>
             <button id="enviar">Buscar</button>
         </center>
     </div>
