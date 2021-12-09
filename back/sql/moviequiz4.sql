@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS moviequiz4.users (
   nombre VARCHAR(30),
   apellido VARCHAR(30),
   correo VARCHAR(50),
-  password VARCHAR(50)
+  contrasena VARCHAR(50)
 );

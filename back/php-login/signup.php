@@ -5,7 +5,7 @@
   $message = '';
 
   if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['correo']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO users (nombre, apellido, correo, password) VALUES (:nombre, :apellido, :correo, :password)";
+    $sql = "INSERT INTO users (nombre, apellido, correo, contrasena) VALUES (:nombre, :apellido, :correo, :password)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $_POST['nombre']);
     $stmt->bindParam(':apellido', $_POST['apellido']);
@@ -20,6 +20,6 @@
     }
 
     echo "<h1>$message</h1>";
-    echo "<a href='../index.html'>";
+    echo "<a href='../../index.html'>Volver a la pantalla inicial</a>";
   }
 ?>

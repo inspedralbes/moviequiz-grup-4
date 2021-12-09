@@ -21,15 +21,16 @@
             <div class="col s12">
                 <div class="header">
                     <img src="./web/img/logofilms.png"/>
-                    <div>
-                        <input type="text" id="correo" name="correo" placeholder="Tu correo" value=""/>
-                        <input type="password" id="password" name="password" placeholder="Tu contraseña" value=""/>
+                    <div id="login">
+                        <input type="text" id="correo" name="correo" placeholder="Tu correo" value="" required/>
+                        <input type="password" id="password" name="password" placeholder="Tu contraseña" value="" required/>
                         <center>
                             <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
+                            <img src="web/img/loading.gif" id="loading" height="100px" hidden/>
                         </center>
                     </div>
-                    <button class="boton" type="button"><a class="register" href="./web/registro.html">REGISTRO</a></button>
                     <div id="inicio"></div>
+                    <button class="boton" type="button"><a class="register" href="./web/registro.html">REGISTRO</a></button>
                 </div>
                 <div class="buscador">
                     <center>
