@@ -3,7 +3,7 @@
 $server = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'movie';
+$database = 'moviequiz4';
 
 try {
   $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);

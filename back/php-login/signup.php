@@ -20,5 +20,6 @@
     }
 
     echo "<h1>$message</h1>";
+    echo "<a href='../index.html'>";
   }
 ?>
