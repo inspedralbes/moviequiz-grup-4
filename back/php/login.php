@@ -1,8 +1,6 @@
 <?php
 
   require 'database.php';
-  $timer = rand(1,7);
-  sleep($timer);
 
   $records = $conn->prepare('SELECT id, nombre, apellido, correo, contrasena FROM users WHERE correo = :correo');
   $records->bindParam(':correo', $_POST['correo']);

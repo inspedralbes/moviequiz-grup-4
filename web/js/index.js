@@ -12,7 +12,7 @@ document.getElementById("botonLogin").addEventListener('click', function(){
     document.getElementById("botonLogin").setAttribute("style","display: none;");
     document.getElementById("loading").removeAttribute("hidden");
 
-    fetch('http://localhost:63342/moviequiz-grup-4/back/php-login/login.php',{
+    fetch('http://localhost:63342/moviequiz-grup-4/back/php/login.php',{
         method: 'POST',
         body: datosEnvio
     }).then(function(res){
