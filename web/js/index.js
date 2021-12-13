@@ -75,7 +75,7 @@ document.getElementById("enviar").addEventListener("click", function() {
                     </div>
                     <div id="modal${i}" class="modal">
                         <div class="modal-content">
-                            <h4 class="center-align cyan-text text-darken-3">${datos.Title}</h4>
+                            <h4 class="center-align cyan-text text-darken-3">${datos.Title} (${datos.Year})</h4>
                             </br>
                             <div>
                                 <label>
