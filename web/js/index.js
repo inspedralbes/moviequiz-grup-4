@@ -1,18 +1,18 @@
 document.getElementById("botonLogin").addEventListener('click', function(){
     let email = document.getElementById("correo").value;
-    let pass = document.getElementById("password").value;
+    let pass = document.getElementById("contrasena").value;
 
     console.log(email);
     console.log(pass);
 
     let datosEnvio = new FormData();
     datosEnvio.append('correo',email);
-    datosEnvio.append('password',pass);
+    datosEnvio.append('contrasena',pass);
 
     document.getElementById("botonLogin").setAttribute("style","display: none;");
     document.getElementById("loading").removeAttribute("hidden");
 
-    fetch('http://localhost:63342/moviequiz-grup-4/back/php/login.php',{
+    fetch('http://localhost:63342/moviequiz-grup-4/back/mvc/login.php',{
         method: 'POST',
         body: datosEnvio
     }).then(function(res){
@@ -21,8 +21,7 @@ document.getElementById("botonLogin").addEventListener('click', function(){
         console.log(data);
         document.getElementById("login").setAttribute("style","display: none;");
         htmlstr = "";
-        htmlstr += `<h5>Bienvenido ${data.nombre} ${data.apellido}</h5>
-                    <h5>${data.correo}</h5>`;
+        htmlstr += `<h5>${data.mensage.message} ${data.correo}</h5>`;
         document.getElementById("inicio").innerHTML = htmlstr;
     }).catch(function(){
         //console.log("Problem!");

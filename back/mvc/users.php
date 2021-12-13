@@ -1,9 +1,9 @@
 <?php
 
 // magic constant
-require_once ("DBAbstractClass.php");//modificar
+require_once ("DBAbstractModel.php");//modificar
 
-class model extends DBAbstractClass {
+class users extends DBAbstractModel {
   
   private $id;
   private $nombre;
@@ -46,36 +46,34 @@ class model extends DBAbstractClass {
     
   }
   
-  public function select($nombre="") {
-   
-      $this->query = "SELECT nombre, apellido, correo, contrasena
+  public function select($correo="") {
+      if (!empty($correo)) {
+          $this->query = "SELECT *
                     FROM users
-                    WHERE nombre='$nombre'";
-      $this->get_results_from_query();
-  
-    if (count($this->rows)==1) {
-      foreach ($this->rows[0] as $property => $value)
-        $this->$property = $value;
-        $this->message = "Persona trobada";
-       
-    } else  $this->message = "Persona no trobada";
-    
-    return $this->rows;
+                    WHERE correo = '$correo'";
+          $this->get_results_from_query();
+          $this->message = "Bienvenido de nuevo";
+      }
+      // Any register selected
+      if (count($this->rows)==1) {
+          foreach ($this->rows[0] as $property => $value)
+              $this->$property = $value;
+      }
+      else $this->message = "No existe ningun usuario con estos datos, porfavor registrase";
   }
   
 
   public function insert($user_data = array()) {
-
-    if (array_key_exists("nom", $user_data)) {
-      $this->select($user_data["nom"]);
-      if ($user_data["nom"]!= $this->nom) {
+    if (array_key_exists("correo", $user_data)) {
+      $result = $this->select($user_data["correo"]);
+      if (empty($result)) {
         foreach ($user_data as $field => $value)
           $$field = $value;
         $this->query="INSERT INTO users (nombre, apellido, correo, contrasena)
-                      VALUES ($this->nombre,$this->apellido,$this->correo,$this->contrasena)";
+                      VALUES ('$nombre','$apellido','$correo','$contrasena')";
         $this->execute_single_query();
-        $this->message = "Usuari inserit amb èxit";
-      } else $this->message = "Usuari ja existent";
+        $this->message = "Bienvenido a nuestra pagina web";
+      } else $this->message = "Ya existe un usuario con estos datos";
     } else $this->message = "Usuari no inserit";
   }
 

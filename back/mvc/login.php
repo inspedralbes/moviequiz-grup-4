@@ -1,14 +1,16 @@
 <?php
 
-  require 'database.php';
+  require_once('users.php');
 
-  $records = $conn->prepare('SELECT id, nombre, apellido, correo, contrasena FROM users WHERE correo = :correo');
-  $records->bindParam(':correo', $_POST['correo']);
-  $records->execute();
-  $results = $records->fetch(PDO::FETCH_ASSOC);
+  if(!empty($_POST['correo']) && !empty($_POST['contrasena'])) {
+    $comp = array ("correo" => $_POST['correo'],"contrasena" => $_POST['contrasena']);
+    $user2 = new users();
+    $user2->select($comp["correo"]);
 
-  session_start();
-  $arr = array('exito' => true, 'id' => $results['id'], 'nombre' => $results['nombre'], 'apellido' => $results['apellido'], 'correo' => $results['correo'], 'password' => $results['contrasena']);
-  $myJSON = json_encode($arr);
-  echo $myJSON;
+    session_start();
+    $arr = array('exito' => true, 'mensage' => $user2, "correo" => $_POST['correo']);
+    $myJSON = json_encode($arr);
+    echo $myJSON;
+  }
+  else echo "No funciona";
 ?>
