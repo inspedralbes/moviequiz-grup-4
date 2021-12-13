@@ -14,10 +14,15 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>InfoFilms</title>
+    <style>
+        .oculto {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" id="resultat">
             <div class="col s12">
                 <div class="header">
                     <img src="./web/img/logofilms.png"/>
@@ -26,13 +31,13 @@
                         <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" value="" required/>
                         <center>
                             <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
-                            <img src="web/img/loading.gif" id="loading" height="100px" hidden/>
+                            <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
                         </center>
                     </div>
                     <div id="inicio"></div>
                     <button class="boton" type="button"><a class="register" href="./web/registro.html">REGISTRO</a></button>
                 </div>
-                <div class="buscador">
+                <div class="buscador" class="oculto">
                     <center>
                         <div class="row">
                             <form class="col s12">
