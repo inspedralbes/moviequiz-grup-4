@@ -1,8 +1,8 @@
 <?php
-    if (isset($_SESSION['user_id'])) {
-        $hola = "Hola gente";
+    session_start();
+    if (isset($_SESSION['usuario'])) {
+        $user = $_SESSION['usuario'];
     }
-    else $hola = "No funciona";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,19 +32,23 @@
             <div class="col s12">
                 <div class="header">
                     <img src="./web/img/logofilms.png"/>
-                    <div id="login">
-                        <input type="text" id="correo" name="correo" placeholder="Tu correo" value="" required/>
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" value="" required/>
-                        <center>
-                            <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
-                            <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
-                        </center>
+                    <div id="logout" class="noactiva">
+                        <h4>Bienvenido de nuevo <?= $user['nombre']; ?> <?= $user['apellido']; ?></h4>
+                        <a href="/back/php/logout.php">
+                            Logout
+                        </a>
+                        <div id="inicio">
+                        </div>
                     </div>
-                    <div id="inicio">
-                    </div>
-                    <?php
-                        echo $hola;
-                    ?>
+                        <div id="login" class="activa">
+                            <input type="text" id="correo" name="correo" placeholder="Tu correo" value="" required/>
+                            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" value="" required/>
+                            <center>
+                                <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
+                                <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
+                            </center>
+                        </div>
+
                     <button class="boton" type="button"><a class="register" href="./web/registro.html">REGISTRO</a></button>
                 </div>
                 <div class="buscador" class="oculto">

@@ -17,50 +17,53 @@ document.getElementById("botonLogin").addEventListener('click', function(){
         body: datosEnvio
     }).then(function(res){
         return res.json();
-    }).then(function(data){
-        console.log(data);
-            if(data.exito == true) {
-                document.getElementById("login").setAttribute("style","display: none;");
-               /* htmlstr = "";
+    }).then(function(data) {
+            console.log(data);
+            if (data.exito == true) {
+                document.getElementById("login").classList.remove("activa")
+                document.getElementById("login").classList.add("noactiva")
+                document.getElementById("logout").classList.add("activa")
+                document.getElementById("login").classList.remove("noactiva")
+
+
+                /*htmlstr = "";
                 htmlstr += `<h5>Bienvenido ${data.nombre} ${data.apellido}</h5>`;
-                document.getElementById("inicio").innerHTML = htmlstr; */
-            }
-            else {
-                document.getElementById("botonLogin").removeAttribute("style","display: none;");
-                document.getElementById("loading").setAttribute("style","display: none;");
+                document.getElementById("inicio").innerHTML = htmlstr;*/
+            } else {
+                document.getElementById("botonLogin").removeAttribute("style", "display: none;");
+                document.getElementById("loading").setAttribute("style", "display: none;");
                 htmlstr = "";
                 htmlstr += `<h5>Escribe esto tonto ${data.correo} ${data.contrasena}</h5>`;
                 document.getElementById("inicio").innerHTML = htmlstr;
             }
-
-
-        document.getElementById("resultat").addEventListener("click", function (e) {
-            if (e.target.classList == "material-icons") {
-                id = e.target.parentElement.href.split("#")[1];
-                num = id.split("e")[1];
-        
-                if (document.getElementById("info-usuari").innerHTML != "") {
-                    document.getElementById("btn-guardar").classList.remove("disabled");
-                    document.getElementById("divError").classList.add("oculto");
-                    document.getElementById("resultat").classList.remove("oculto");
-                }
-        
-                document.getElementById("formValue").addEventListener("click", function (e) {
-                    valoracion = e.target.parentElement.querySelector("[name='valoracion']").value;
-                    console.log()
-                })
-        
-                document.getElementById("btn-guardar").addEventListener("click", function (e) {
-                    let favorito = (e.target.parentElement.querySelector("[name='fav']").value == "on") ? true : false;
-                    let comentario = e.target.parentElement.querySelector("#comentario").value;
-                    console.log(valoracion + " " + favorito + " " + comentario);
-                });
-            }
-        });
     }).catch(function(){
         console.log("Problema!");
     });
 });
+document.getElementById("resultat").addEventListener("click", function (e) {
+    if (e.target.classList == "material-icons") {
+        id = e.target.parentElement.href.split("#")[1];
+        num = id.split("e")[1];
+        
+        if (document.getElementById("info-usuari").innerHTML != "") {
+            document.getElementById("btn-guardar").classList.remove("disabled");
+            document.getElementById("divError").classList.add("oculto");
+            document.getElementById("resultat").classList.remove("oculto");
+        }
+        
+        document.getElementById("formValue").addEventListener("click", function (e) {
+            valoracion = e.target.parentElement.querySelector("[name='valoracion']").value;
+            console.log()
+        })
+        
+        document.getElementById("btn-guardar").addEventListener("click", function (e) {
+            let favorito = (e.target.parentElement.querySelector("[name='fav']").value == "on") ? true : false;
+            let comentario = e.target.parentElement.querySelector("#comentario").value;
+            console.log(valoracion + " " + favorito + " " + comentario);
+        });
+    }
+});
+
 
 document.getElementById("enviar").addEventListener("click", function() {
     let nombre= document.getElementById("search").value;
