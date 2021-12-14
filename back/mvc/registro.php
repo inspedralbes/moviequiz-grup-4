@@ -2,9 +2,9 @@
     require_once('users.php');
 
     if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['correo']) && !empty($_POST['contrasena'])) {
-        $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);
+        //$contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);
         $newUser = array ("nombre" => $_POST['nombre'],"apellido" => $_POST['apellido'],"correo" => $_POST['correo'],
-            "contrasena" => $contrasena);
+            "contrasena" => $_POST['contrasena']);
         $user2 = new users();
         $user2->insert($newUser);
         //$user2->select($newUser["correo"]);

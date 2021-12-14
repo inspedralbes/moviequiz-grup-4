@@ -19,10 +19,21 @@ document.getElementById("botonLogin").addEventListener('click', function(){
         return res.json();
     }).then(function(data){
         console.log(data);
-        document.getElementById("login").setAttribute("style","display: none;");
-        htmlstr = "";
-        htmlstr += `<h5>${data.mensage.message} ${data.correo}</h5>`;
-        document.getElementById("inicio").innerHTML = htmlstr;
+            if(data.exito == true) {
+                document.getElementById("login").setAttribute("style","display: none;");
+               /* htmlstr = "";
+                htmlstr += `<h5>Bienvenido ${data.nombre} ${data.apellido}</h5>`;
+                document.getElementById("inicio").innerHTML = htmlstr; */
+            }
+            else {
+                document.getElementById("botonLogin").removeAttribute("style","display: none;");
+                document.getElementById("loading").setAttribute("style","display: none;");
+                htmlstr = "";
+                htmlstr += `<h5>Escribe esto tonto ${data.correo} ${data.contrasena}</h5>`;
+                document.getElementById("inicio").innerHTML = htmlstr;
+            }
+
+
         document.getElementById("resultat").addEventListener("click", function (e) {
             if (e.target.classList == "material-icons") {
                 id = e.target.parentElement.href.split("#")[1];

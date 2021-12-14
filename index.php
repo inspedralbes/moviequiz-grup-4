@@ -1,3 +1,9 @@
+<?php
+    if (isset($_SESSION['user_id'])) {
+        $hola = "Hola gente";
+    }
+    else $hola = "No funciona";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,7 +40,11 @@
                             <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
                         </center>
                     </div>
-                    <div id="inicio"></div>
+                    <div id="inicio">
+                    </div>
+                    <?php
+                        echo $hola;
+                    ?>
                     <button class="boton" type="button"><a class="register" href="./web/registro.html">REGISTRO</a></button>
                 </div>
                 <div class="buscador" class="oculto">

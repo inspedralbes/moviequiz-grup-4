@@ -5,12 +5,21 @@
   if(!empty($_POST['correo']) && !empty($_POST['contrasena'])) {
     $comp = array ("correo" => $_POST['correo'],"contrasena" => $_POST['contrasena']);
     $user2 = new users();
-    $user2->select($comp["correo"]);
+    $usuario = $user2->select($comp["correo"]);
 
-    session_start();
-    $arr = array('exito' => true, 'mensage' => $user2, "correo" => $_POST['correo']);
-    $myJSON = json_encode($arr);
-    echo $myJSON;
+    if($_POST['contrasena'] == $usuario[0]['contrasena']) {
+      session_start();
+      $_SESSION['user_id'] = $usuario[0]['id'];
+      $arr = array('exito' => true, 'nombre' => $usuario[0]['nombre'], "apellido" => $usuario[0]['apellido'], "correo" => $usuario[0]['correo']);
+      $myJSON = json_encode($arr);
+      echo $myJSON;
+    }
+    else {
+      session_start();
+      $arr = array('exito' => false, 'correo' => $usuario[0]['correo'], "contrasena" => $usuario[0]['contrasena']);
+      $myJSON = json_encode($arr);
+      echo $myJSON;
+    }
   }
   else echo "No funciona";
 ?>

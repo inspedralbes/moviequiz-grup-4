@@ -52,14 +52,13 @@ class users extends DBAbstractModel {
                     FROM users
                     WHERE correo = '$correo'";
           $this->get_results_from_query();
-          $this->message = "Bienvenido de nuevo";
       }
       // Any register selected
       if (count($this->rows)==1) {
           foreach ($this->rows[0] as $property => $value)
               $this->$property = $value;
       }
-      else $this->message = "No existe ningun usuario con estos datos, porfavor registrase";
+      return $this->rows;
   }
   
 
