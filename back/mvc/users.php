@@ -73,7 +73,7 @@ class users extends DBAbstractModel {
         $this->execute_single_query();
         $this->message = "Bienvenido a nuestra pagina web";
       } else $this->message = "Ya existe un usuario con estos datos";
-    } else $this->message = "Usuari no inserit";
+    } else $this->message = "Usuario no insertado";
   }
 
   public function update ($userData = array()) {
