@@ -47,7 +47,7 @@ document.getElementById("botonLogin").addEventListener('click', function(){
             }
         });
     }).catch(function(){
-        console.log("Problem!");
+        console.log("Problema!");
     });
 });
 
@@ -112,7 +112,7 @@ document.getElementById("enviar").addEventListener("click", function() {
                                 <label for="comentario">Comentario</label>
                             </div>
                             <button id="btn-guardar" class="btn waves-effect waves-light disabled"> Guardar </button>
-                            <div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>
+                            <!--<div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>-->
                         </div>
                         <div class="modal-footer">
                             <a href="#!" class="btn modal-close red"><i class="material-icons">cerrar</i></a>
@@ -120,11 +120,11 @@ document.getElementById("enviar").addEventListener("click", function() {
                     </div>
                 </div>`;
     }
-    document.getElementById("peliculas").innerHTML=pelis;
+    document.getElementById("peliculas").innerHTML = pelis;
         var elems = document.querySelectorAll('.modal');
         var instances = M.Modal.init(elems,{});
 
     }).catch(function() {
-        console.log("problem!");
+        console.log("problema!");
     });
 });
