@@ -14,7 +14,7 @@ class users extends DBAbstractModel {
  // public $message;
   
   function __construct() {
-    $this->db_name = "moviequiz4";
+    $this->db_name = "a18marcastru_moviequiz4";
     }
   
   function __toString() {
@@ -83,8 +83,6 @@ class users extends DBAbstractModel {
   public function delete ($nom="") {
   
   }
- 
-    
+  
 }
-
 ?>

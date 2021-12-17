@@ -18,7 +18,7 @@ document.getElementById("registro").addEventListener('click', function(){
     //document.getElementById("botonLogin").setAttribute("style","display: none;");
     //document.getElementById("loading").removeAttribute("hidden");
 
-    fetch('http://localhost:63342/moviequiz-grup-4/back/mvc/registro.php',{
+    fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/registro.php',{
         method: 'POST',
         body: datosEnvio
     }).then(function(res){

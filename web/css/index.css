@@ -12,12 +12,17 @@
     border: 1px solid black;
     padding: 20px;
 }
-
-.activa{
+.activa {
     display:block;
 }
 
-.noactiva{
+.noactiva {
     display:none;
-
+}
+#botonlogout {
+    text-decoration: none;
+    color: white;
+}
+.oculto {
+    display: none !important;
 }
