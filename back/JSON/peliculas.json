@@ -1,0 +1,28 @@
+{
+  "peliculas": [{
+    "Nombre": "Cars",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg",
+    "Anyo": [2020,2006,2007,2012]
+  },
+  {
+    "Nombre": "Spider-Man",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_SX300.jpg",
+    "Anyo": [2015,1999,2001,2002]
+  },
+  {
+    "Nombre": "The Godfather",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "Anyo": [2006,1972,1995,2017]
+  },
+  {
+    "Nombre": "King Kong",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjYxYmRlZWYtMzAwNC00MDA1LWJjNTItOTBjMzlhNGMzYzk3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Anyo": [2005,1986,2021,2003]
+  },
+  {
+    "Nombre": "The Wolf of Wall Street",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg",
+    "Anyo": [2001,1987,2013,2012]
+  }
+  ]
+}
