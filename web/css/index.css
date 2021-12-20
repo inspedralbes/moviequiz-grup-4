@@ -23,6 +23,10 @@
     text-decoration: none;
     color: white;
 }
+#botonCuenta {
+    text-decoration: none;
+    color: white;
+}
 .oculto {
     display: none !important;
 }

@@ -1,5 +1,4 @@
 <?php
-
   require_once('users.php');
 
   if(!empty($_POST['correo']) && !empty($_POST['contrasena'])) {

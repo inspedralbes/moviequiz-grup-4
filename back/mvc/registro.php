@@ -14,3 +14,13 @@
         $myJSON = json_encode($arr);
         echo $myJSON;
     }
+    else if (!empty($_POST['contrasena'])){
+        session_start();
+        if(isset($_SESSION['usuario'])) {
+                $user = $_SESSION['usuario'];
+                $newContrasena = array("id" => $user['id'], "contrasena" => $_POST['contrasena']);
+                $contra = new users();
+                $contrasena = $contra->update();
+                $arr = array("exito" => true, 'contrasena' => $contrasena);
+        }
+    }

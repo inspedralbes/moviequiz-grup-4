@@ -51,6 +51,11 @@ class pelis extends DBAbstractModel {
                     WHERE nombre_pelicula = '$nombre_pelicula'";
             $this->get_results_from_query();
         }
+        else {
+            $this->query = "SELECT nombre_pelicula, poster, anyo
+                    FROM peliculas";
+            $this->get_results_from_query();
+        }
         // Any register selected
         if (count($this->rows)==1) {
             foreach ($this->rows[0] as $property => $value)

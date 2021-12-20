@@ -1,6 +1,10 @@
 <?php
-    require_once('./back/mvc/pelis.php');
+    require_once('pelis.php');
 
     $pelis = new pelis();
     $peliculas = $pelis->select();
-    print_r($peliculas);
+
+    session_start();
+    $arr = array('exito' => true, 'pelicula' => $peliculas);
+    $myJSON = json_encode($arr);
+    echo $myJSON;

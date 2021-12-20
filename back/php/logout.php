@@ -5,5 +5,5 @@
 
   session_destroy();
 
-  header('Location: /moviequiz-grup-4');
+  header('Location: http://moviequiz4.alumnes.inspedralbes.cat/index.html');
 ?>
