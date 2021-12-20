@@ -6,14 +6,34 @@
 session_start();
 if (isset($_SESSION['usuario'])) {
     $user = $_SESSION['usuario'];
-    $nuevoPeli = array("imdbId" => $_POST['imdbId'], "nombre_pelicula" => $_POST['nombre_pelicula'], "poster" => $_POST['poster'],
-        "anyo" => $_POST['anyo']);
-    $peli = new pelis();
-    $peli->insert($nuevoPeli);
+    if(!empty($_POST['imdbId']) && !empty($_POST['nombre_pelicula'])) {
+        $nuevoPeli = array("imdbId" => $_POST['imdbId'], "nombre_pelicula" => $_POST['nombre_pelicula'], "poster" => $_POST['poster'],
+            "anyo" => $_POST['anyo']);
+        $peli = new pelis();
+        $peli->insert($nuevoPeli);
 
-    $nuevoValor = array("id_user" => $user['id'], "id_pelicula" => $_POST['imdbId'], "favorito" => $_POST['favorito'], "puntuacion" => $_POST['puntuacion'],
-        "comentario" => $_POST['comentario']);
-    $valor = new valores();
-    $valor->insert($nuevoValor);
+        $nuevoValor = array("id_user" => $user['id'], "id_pelicula" => $_POST['imdbId'], "favorito" => $_POST['favorito'], "puntuacion" => $_POST['puntuacion'],
+            "comentario" => $_POST['comentario']);
+        $valor = new valores();
+        $valor->insert($nuevoValor);
+    }
+    else {
+        $arrValor = array("id_user" => $user['id']);
+        $favPeli = new valores();
+        $favoritos = $favPeli->select2($arrValor['id_user']);
+        $array = array();
+        for($i = 0, $size = count($favoritos);$i < $size;$i++) {
+            if($favoritos[$i]['favorito'] == 1) {
+                $arrPeli = array("id_pelicula" => $favoritos[$i]['id_pelicula']);
+                $peli2 = new pelis();
+                $pelicula[$i] = $peli2->select2($arrPeli['id_pelicula']);
+                array_push($array, $pelicula);
+            }
+        }
+        session_start();
+        $arr = array("exito" => true, "peliculas" => $pelicula, "favoritos" => $favoritos);
+        $myJSON = json_encode($arr);
+        echo $myJSON;
+    }
 }
 ?>

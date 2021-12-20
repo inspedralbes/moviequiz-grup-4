@@ -20,7 +20,9 @@
                 $user = $_SESSION['usuario'];
                 $newContrasena = array("id" => $user['id'], "contrasena" => $_POST['contrasena']);
                 $contra = new users();
-                $contrasena = $contra->update();
-                $arr = array("exito" => true, 'contrasena' => $contrasena);
+                $contra->update($newContrasena);
+                $arr = array("exito" => true, "contrasena" => $contra);
+                $myJSON = json_encode($arr);
+                echo $myJSON;
         }
     }

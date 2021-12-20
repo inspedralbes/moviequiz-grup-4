@@ -59,6 +59,20 @@ class valores extends DBAbstractModel {
         return $this->rows;
     }
 
+    public function select2($id_user="") {
+        if (!empty($id_user)) {
+            $this->query = "SELECT *
+                    FROM valoracion
+                    WHERE id_user = '$id_user'";
+            $this->get_results_from_query();
+        }
+        if (count($this->rows)==1) {
+            foreach ($this->rows[0] as $property => $value)
+                $this->$property = $value;
+        }
+        return $this->rows;
+    }
+
 
     public function insert($user_data = array()) {
         if (array_key_exists("id_pelicula", $user_data)) {

@@ -51,12 +51,21 @@ class pelis extends DBAbstractModel {
                     WHERE nombre_pelicula = '$nombre_pelicula'";
             $this->get_results_from_query();
         }
-        else {
-            $this->query = "SELECT nombre_pelicula, poster, anyo
-                    FROM peliculas";
+        // Any register selected
+        if (count($this->rows)==1) {
+            foreach ($this->rows[0] as $property => $value)
+                $this->$property = $value;
+        }
+        return $this->rows;
+    }
+
+    public function select2($id_pelicula="") {
+        if (!empty($id_pelicula)) {
+            $this->query = "SELECT *
+                    FROM peliculas
+                    WHERE imdbId = '$id_pelicula'";
             $this->get_results_from_query();
         }
-        // Any register selected
         if (count($this->rows)==1) {
             foreach ($this->rows[0] as $property => $value)
                 $this->$property = $value;

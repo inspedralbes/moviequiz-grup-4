@@ -29,7 +29,6 @@ class users extends DBAbstractModel {
   //select dels camps passats de tots els registres
   //stored in $rows property
   public function selectAll($fields=array()) {
-    
     $this->query="SELECT ";
     $firstField = true;
     for ($i=0; $i<count($fields); $i++) {
@@ -60,12 +59,27 @@ class users extends DBAbstractModel {
       }
       return $this->rows;
   }
+
+    public function select_contra($contrasena="") {
+        if (!empty($contrasena)) {
+            $this->query = "SELECT *
+                    FROM users
+                    WHERE contrasena = '$contrasena'";
+            $this->get_results_from_query();
+        }
+        // Any register selected
+        if (count($this->rows)==1) {
+            foreach ($this->rows[0] as $property => $value)
+                $this->$property = $value;
+        }
+        return $this->rows;
+    }
   
 
   public function insert($user_data = array()) {
     if (array_key_exists("correo", $user_data)) {
       $result = $this->select($user_data["correo"]);
-      if (empty($result)) {
+      if (!empty($result)) {
         foreach ($user_data as $field => $value)
           $$field = $value;
         $this->query="INSERT INTO users (nombre, apellido, correo, contrasena)
@@ -77,7 +91,13 @@ class users extends DBAbstractModel {
   }
 
   public function update ($userData = array()) {
-   
+      foreach ($userData as $field => $value)
+          $$field = $value;
+      $this->query = "UPDATE users
+            SET contrasena='$userData[contrasena]'
+            WHERE id='$userData[id]'";
+      $this->execute_single_query();
+      $this->message = "Contraseña cambiada con exito";
   }
  
   public function delete ($nom="") {

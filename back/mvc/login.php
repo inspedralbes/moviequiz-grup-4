@@ -20,5 +20,13 @@
       echo $myJSON;
     }
   }
-  else echo "No funciona";
+  else {
+    session_start();
+    if(isset($_SESSION['usuario'])) {
+      $user = $_SESSION['usuario'];
+      $arr = array('exito' => true, 'nombre' => $user['nombre'], 'apellido' => $user['apellido'], "correo" => $user['correo']);
+      $myJSON = json_encode($arr);
+      echo $myJSON;
+    }
+  }
 ?>
