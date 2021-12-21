@@ -1,9 +1,8 @@
 fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/JSON/peliculasIndex.json').then(function(res) {
     return res.json();
-
 }).then(function(data) {
     let pelis = "";
-    for(let i=0; i<data.peliculasIndex.length; i++){
+    for(let i = 0; i < data.peliculasIndex.length; i++){
         pelis += `<a class="carousel-item" href="#!"><img src="${data.peliculasIndex[i].Poster}" height="400px"></a>`;
     }
     document.getElementById("index-cont").innerHTML=pelis;
