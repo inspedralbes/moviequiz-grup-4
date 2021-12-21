@@ -1,12 +1,3 @@
-fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/JSON/peliculasIndex.json').then(function(res) {
-    return res.json();
-}).then(function(data) {
-    let pelis = "";
-    for(let i = 0; i < data.peliculasIndex.length; i++){
-        pelis += `<a class="carousel-item" href="#${i}!"><img src="${data.peliculasIndex[i].Poster}" height="400px"></a>`;
-    }
-    document.getElementById("portada").innerHTML=pelis;
-});
 
 document.getElementById("botonLogin").addEventListener('click', function(){
     let email = document.getElementById("correo").value;
