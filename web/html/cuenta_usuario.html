@@ -6,31 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../../web/css/cuenta_usuario.css"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="./web/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./web/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./web/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./web/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="./web/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../web/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../web/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../web/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../web/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../web/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>InfoFilms</title>
 </head>
 <body>
-        <center>
-            <h1>Cuenta de usuario</h1>
-        </center>
-        <div id="informacion">
-            <div id="perfil"></div>
-            <div id="password">
-                <h5>Cambiar de contraseña</h5>
+    <center>
+        <h1>Perfil de usuario</h1>
+    </center>
+    <div id="informacion">
+        <div id="perfil"></div>
+        <div id="password">
+            <center>
+                <h5>Cambiar la contraseña</h5>
                 <input type='text' class="col s5" name='contrasena' id='contrasena' placeholder='Tu contraseña'>
                 <button class='waves-effect waves-light btn' id='btn-contrasena' type='button'>Cambiar</button>
-            </div>
+                <div id="mensaje"></div>
+            </center>
         </div>
-        <h5>Peliculas favoritas</h5>
-        <div id="favoritas"></div>
-    <script src="../../web/js/cuenta_usuario.js"></script>
+    </div>
+    <h5>Peliculas favoritas</h5>
+    <div id="favoritas"></div>
     <button class='waves-effect waves-light btn'><a href="../../index.html" id="boton-inicio">Volver al Inicio</a></button>
+    <script src="../../web/js/cuenta_usuario.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
