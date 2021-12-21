@@ -3,11 +3,11 @@ fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/login.php').then(func
 }).then(function(data) {
     console.log(data);
     let htmlstr = "";
-    htmlstr += `<center><h5>Informacion del usuario:</h5>
+    htmlstr += `<h5>Informacion de usuario:</h5>
                 <p><i class="tiny material-icons">chevron_right</i> Nombre: ${data.nombre}</p>
                 <p><i class="tiny material-icons">chevron_right</i> Apellido: ${data.apellido}</p>
                 <p><i class="tiny material-icons">chevron_right</i> Correo: ${data.correo}</p>
-            </ul></center>`;
+            </ul>`;
     document.getElementById("perfil").innerHTML = htmlstr;
 });
 fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/peliculas_valoracion.php').then(function(res) {
@@ -15,13 +15,12 @@ fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/peliculas_valoracion.
 }).then(function(data) {
     console.log(data);
     let fav = "";
-    let len = data.peliculas.length;
-    for (let i = 0; i < len;i++){
+    for (let i = 0; i < data.peliculas.length;i++){
         fav += `<img src="${data.peliculas[i][0].poster}">
-                <p>Nombre: ${data.peliculas[i][0].nombre_pelicula}</p>
+                <p>Nombre: ${data.peliculas[i][0].nombre}</p>
                 <p>Año: ${data.peliculas[i][0].anyo}</p>
-                <p>Valoracion: ${data.favoritos[i].puntuacion}</p>
-                <p>Comentario: ${data.favoritos[i].comentario}</p>`;
+                <p>Valoracion: ${data.peliculas[i][0].valoracion}</p>
+                <p>Comentario: ${data.peliculas[i][0].comentario}</p>`;
     }
     document.getElementById("favoritas").innerHTML = fav;
 });
@@ -39,8 +38,5 @@ document.getElementById("btn-contrasena").addEventListener('click', function (){
         return res.json();
     }).then(function(data) {
         console.log(data);
-        let mens = "";
-        mens += `<p class="green-text darken-3">${data.mensaje.message}</p>`;
-        document.getElementById("mensaje").innerHTML = mens;
     });
 });

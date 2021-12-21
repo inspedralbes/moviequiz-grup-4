@@ -1,15 +1,8 @@
-#informacion {
-    display: inline-flex;
-}
 #perfil {
     border: 1px solid black;
-    margin: 10%;
-    padding: 10%;
 }
 #password {
     border: 1px solid black;
-    margin: 10%;
-    padding: 10%;
 }
 #boton-inicio {
     text-decoration: none;
