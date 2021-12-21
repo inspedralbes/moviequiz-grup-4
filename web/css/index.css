@@ -27,6 +27,9 @@
     text-decoration: none;
     color: white;
 }
+#boton-inicio {
+    color: black;
+}
 .oculto {
     display: none !important;
 }

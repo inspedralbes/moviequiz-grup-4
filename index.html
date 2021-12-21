@@ -17,38 +17,66 @@
     <title>InfoFilms</title>
 </head>
 <body>
+    <header>
+        <nav class="teal accent-4">
+            <div class="nav-wrapper">
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="./index.html" id="logo" class="brand-logo"><img src="./web/img/logofilms.png" height="60px"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="modal-trigger black-text" href="./web/html/registro.html">REGISTRO</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div id="info-usuari" class="noactiva">
+                <div class="center-align">
+                    <div id="inicio"></div>
+                    <br>
+                    <button class="waves-effect waves-light btn" type="button"><a href="./back/php/logout.php" id="botonlogout">Logout</a></button>
+                    <button class="waves-effect waves-light btn" type="button"><a href="./web/html/cuenta_usuario.html" id="botonCuenta">Cuenta de usuario</a></button>
+                </div>
+            </div>
+            <div id="login" class="activa">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input type="text" id="correo" name="correo" value="" required/>
+                        <label for="email">Tu correo</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input type="password" id="contrasena" name="contrasena" value="" required/>
+                        <label for="password">Contraseña</label>
+                    </div>
+                </div>
+                <div class="center-align">
+                    <div id="inicio2"></div>
+                    <br>
+                    <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
+                    <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row" id="resultat">
             <div class="col s12">
-                <div class="header">
-                    <img src="./web/img/logofilms.png"/>
-                    <div id="info-usuari" class="noactiva">
-                        <div class="center-align">
-                            <div id="inicio"></div>
-                            <br>
-                            <button class="waves-effect waves-light btn" type="button"><a href="/back/php/logout.php" id="botonlogout">Logout</a></button>
-                            <button class="waves-effect waves-light btn" type="button"><a href="/web/html/cuenta_usuario.html" id="botonCuenta">Cuenta de usuario</a></button>
+                <div class="buscador" class="oculto">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" name="pelis" id="search" value=""/>
+                            <label for="text">Busca tu película favorita</label>
                         </div>
                     </div>
-                        <div id="login" class="activa">
-                            <input type="text" id="correo" name="correo" placeholder="Tu correo" value="" required/>
-                            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseÃ±a" value="" required/>
-                                <div class="center-align">
-                                    <div id="inicio2"></div>
-                                    <br>
-                                    <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
-                                    <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
-                                </div>
-                        </div>
-                    <button class="boton" type="button"><a class="register" href="web/html/registro.html">REGISTRO</a></button>
                 </div>
-                <div class="buscador center-align" class="oculto">
-                        <div class="row">
-                            <form class="col s12">
-                                <input type="text" class="col s5" name="pelis" id="search" placeholder="Busca tu pelÃ­cula favorita" value="">
-                            </form>
-                            <button class="waves-effect waves-light btn" id="enviar">BUSCAR</button>
-                        </div>
+                <div class="center-align">
+                    <br>
+                    <button class="waves-effect waves-light btn center-align" id="enviar">BUSCAR</button>
                 </div>
                 <div class="row center">
                     <div id="peliculas"></div>
@@ -75,29 +103,26 @@
                 </div>
             </div>
         </div>
-        <div class="carousel" id="portada">
-        </div>
-    </div>   
-    <footer class="page-footer teal darken-3">
+    </div>        
+    <footer class="page-footer teal accent-4">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">InfoFilms</h5>
-                    <p class="grey-text text-lighten-4">Página web oficial de InfoFilms , especializada en la busqueda de información de diferentes peliculas. InfoFilms, marca perteneciente al grupo Movie4. </p>
+                    <h5 class="black-text">InfoFilms</h5>
+                    <p class="black-text text-lighten-4">Página web oficial de InfoFilms , especializada en la busqueda de información de diferentes peliculas. InfoFilms, marca perteneciente al grupo Movie4. </p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="black-text">Links</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" >93 203 33 32</a></li>
-                        <li><a class="grey-text text-lighten-3" >93 203 36 42</a></li>
-                        <li><a class="grey-text text-lighten-3" >moviequiz4@xtec.cat</a></li>
-                        <li><a class="grey-text text-lighten-3" >Web AFA</a></li>
+                        <li><a class="black-text text-lighten-3">93 203 33 32</a></li>
+                        <li><a class="black-text text-lighten-3">93 203 36 42</a></li>
+                        <li><a class="black-text text-lighten-3">moviequiz4@xtec.cat</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
-            <div class="container">
+            <div class="container black-text">
                 ©2021 Moviequiz4 S.L. Todos los derechos sobre las marcas, imágenes y contenidos están protegidos.
             </div>
         </div>
@@ -106,9 +131,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./web/js/index.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded',function(){
-            var img = document.querySelectorAll(".carousel");
-            var instances = M.Carousel.init(img);
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems, {
+            indicators : true,
+        });
+        let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
+        slideTime = 3000,
+        activeClass = "active";
+
+        setInterval(() => {
+            indicatorItems.forEach(el => {
+                if (el.classList.contains(activeClass)) {
+                    sib = el.nextElementSibling;
+                    if (sib == null) {
+                    indicatorItems[0].click();
+                    } else {
+                        sib.click()
+                    }
+                }
+            });
+        }, slideTime);
         });
         document.addEventListener('DOMContentLoaded', function() {
             var modal1 = document.querySelectorAll('.modal');

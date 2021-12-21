@@ -17,23 +17,53 @@
     <title>InfoFilms</title>
 </head>
 <body>
-    <center>
-        <h1>Perfil de usuario</h1>
-    </center>
+    <header>
+        <nav class="teal accent-4">
+            <div class="nav-wrapper">
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="./../../index.html" id="logo" class="brand-logo"><img src="./../../web/img/logofilms.png" height="60px"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="modal-trigger black-text" href="registro.html">REGISTRO</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h1 class="center-aling">Perfil de usuario</h1>
     <div id="informacion">
         <div id="perfil"></div>
-        <div id="password">
-            <center>
-                <h5>Cambiar la contraseña</h5>
-                <input type='text' class="col s5" name='contrasena' id='contrasena' placeholder='Tu contraseña'>
-                <button class='waves-effect waves-light btn' id='btn-contrasena' type='button'>Cambiar</button>
-                <div id="mensaje"></div>
-            </center>
+        <div class="center-align" id="password">
+            <h5>Cambiar la contraseña</h5>
+            <input type='text' class="col s5" name='contrasena' id='contrasena' placeholder='Tu contraseña'>
+            <button class='waves-effect waves-light btn' id='btn-contrasena' type='button'>Cambiar</button>
+            <div id="mensaje"></div>
         </div>
     </div>
     <h5>Peliculas favoritas</h5>
     <div id="favoritas"></div>
     <button class='waves-effect waves-light btn'><a href="../../index.html" id="boton-inicio">Volver al Inicio</a></button>
+    <br><br><br>
+    <footer class="page-footer teal accent-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="black-text">InfoFilms</h5>
+                    <p class="black-text text-lighten-4">Página web oficial de InfoFilms , especializada en la busqueda de información de diferentes peliculas. InfoFilms, marca perteneciente al grupo Movie4. </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="black-text">Links</h5>
+                    <ul>
+                        <li><a class="black-text text-lighten-3">93 203 33 32</a></li>
+                        <li><a class="black-text text-lighten-3">93 203 36 42</a></li>
+                        <li><a class="black-text text-lighten-3">moviequiz4@xtec.cat</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container black-text">
+                ©2021 Moviequiz4 S.L. Todos los derechos sobre las marcas, imágenes y contenidos están protegidos.
+            </div>
+        </div>
     <script src="../../web/js/cuenta_usuario.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
