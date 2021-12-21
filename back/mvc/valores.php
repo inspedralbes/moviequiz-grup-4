@@ -63,7 +63,7 @@ class valores extends DBAbstractModel {
         if (!empty($id_user)) {
             $this->query = "SELECT *
                     FROM valoracion
-                    WHERE id_user = '$id_user'";
+                    WHERE id_user = '$id_user' AND favorito = 1";
             $this->get_results_from_query();
         }
         if (count($this->rows)==1) {

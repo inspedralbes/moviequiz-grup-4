@@ -3,9 +3,9 @@ fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/JSON/peliculasIndex.json'
 }).then(function(data) {
     let pelis = "";
     for(let i = 0; i < data.peliculasIndex.length; i++){
-        pelis += `<a class="carousel-item" href="#!"><img src="${data.peliculasIndex[i].Poster}" height="400px"></a>`;
+        pelis += `<a class="carousel-item" href="#${i}!"><img src="${data.peliculasIndex[i].Poster}" height="400px"></a>`;
     }
-    document.getElementById("index-cont").innerHTML=pelis;
+    document.getElementById("portada").innerHTML=pelis;
 });
 
 document.getElementById("botonLogin").addEventListener('click', function(){
@@ -34,8 +34,6 @@ document.getElementById("botonLogin").addEventListener('click', function(){
                 document.getElementById("login").classList.add("noactiva");
                 document.getElementById("info-usuari").classList.add("activa");
                 document.getElementById("info-usuari").classList.remove("noactiva");
-                document.getElementById("juegos").classList.add("activa");
-                document.getElementById("juegos").classList.remove("noactiva");
                 htmlstr = "";
                 htmlstr += `<h5>Bienvenido de nuevo ${data.nombre} ${data.apellido}</h5>`;
                 document.getElementById("inicio").innerHTML = htmlstr;
@@ -141,7 +139,7 @@ document.getElementById("enviar").addEventListener("click", function() {
                                     <label for="comentario">Comentario</label>
                                 </div>
                                 <button num="${i}" id="btn-guardar" class="guardar btn waves-effect waves-light"> Guardar </button>
-                                <!--<div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>-->
+                                <div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>
                             </div>
                             <div class="modal-footer">
                                 <a href="#!" class="btn modal-close red"><i class="material-icons">close</i></a>

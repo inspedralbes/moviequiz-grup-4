@@ -21,13 +21,10 @@ if (isset($_SESSION['usuario'])) {
         $arrValor = array("id_user" => $user['id']);
         $favPeli = new valores();
         $favoritos = $favPeli->select2($arrValor['id_user']);
-        $array = array();
         for($i = 0, $size = count($favoritos);$i < $size;$i++) {
-            if($favoritos[$i]['favorito'] == 1) {
-                $arrPeli = array("id_pelicula" => $favoritos[$i]['id_pelicula']);
-                $peli2 = new pelis();
-                $pelicula[$i] = $peli2->select2($arrPeli['id_pelicula']);
-            }
+            $arrPeli = array("id_pelicula" => $favoritos[$i]['id_pelicula']);
+            $peli2 = new pelis();
+            $pelicula[$i] = $peli2->select2($arrPeli['id_pelicula']);
         }
         session_start();
         $arr = array("exito" => true, "peliculas" => $pelicula, "favoritos" => $favoritos);

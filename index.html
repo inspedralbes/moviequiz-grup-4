@@ -56,7 +56,7 @@
                 <div class="row center">
                     <div id="peliculas"></div>
                 </div>
-                <div id="juegos" class="noactiva">
+                <div id="juegos">
                     <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="minijuegos">Minijuegos</a>
                     <div id="modal1" class="modal modal-fixed-footer">
                         <div class="modal-content" id="juego">
@@ -68,8 +68,7 @@
                 </div>
             </div>
         </div>
-        <div id="index-cont">
-            <div class="carousel"></div>
+        <div class="carousel" id="portada">
         </div>
     </div>   
     <footer class="page-footer teal darken-3">
@@ -100,14 +99,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./web/js/index.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var modal1 = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(modal1, {});
-        });
         document.addEventListener('DOMContentLoaded',function(){
             var img = document.querySelectorAll(".carousel");
             var instances = M.Carousel.init(img);
         });
+        /*document.addEventListener('DOMContentLoaded', function() {
+            var modal1 = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(modal1, {});
+        });*/
     </script>
 </body>
 </html>
