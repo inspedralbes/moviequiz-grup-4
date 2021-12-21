@@ -2,6 +2,11 @@ fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/trending_peliculas.ph
     return res.json();
 }).then(function(data) {
     console.log(data);
+    let tren = "";
+    for(let i = 0;i < data.trending.length;i++) {
+        tren += `<img src="${data.trending[i][0].poster}">`;
+    }
+    document.getElementById("trending").innerHTML = tren;
 });
 
 document.getElementById("botonLogin").addEventListener('click', function(){
