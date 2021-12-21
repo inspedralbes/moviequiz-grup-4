@@ -21,7 +21,7 @@
                 $newContrasena = array("id" => $user['id'], "contrasena" => $_POST['contrasena']);
                 $contra = new users();
                 $contra->update($newContrasena);
-                $arr = array("exito" => true, "mensaje" => $contra);
+                $arr = array("exito" => true, "contrasena" => $contra);
                 $myJSON = json_encode($arr);
                 echo $myJSON;
         }

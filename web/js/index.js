@@ -1,3 +1,8 @@
+fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/trending_peliculas.php').then(function(res) {
+    return res.json();
+}).then(function(data) {
+    console.log(data);
+});
 
 document.getElementById("botonLogin").addEventListener('click', function(){
     let email = document.getElementById("correo").value;
@@ -146,28 +151,19 @@ document.getElementById("enviar").addEventListener("click", function() {
     });
 });
 
-/*function titulo() {
-    let titulo = `<div class="modal-content joc-modal">
-                    <div class="header-joc center" id="pr">
-                        <h4><i class="material-icons">games</i> MINIJOC <i class="material-icons">games</i> </h4>
-                        <h6>En quin any es va estrenar aquesta pel·lícula?</h6>
-                    </div>
-                    <div class="carousel joc-carousel carousel-slider center black-text">
-                        <div id="generarpreguntas"></div>
-                    </div>
-                </div>
-                <!--<div class="modal-footer">
-                    <a href="#!" class="btn modal-close red "><i class="material-icons red">close</i></a>
-                </div>-->`;
+function titulo() {
+    let titulo = `<h4>Minijuego</h4>
+                       <h6>Este minijuego trata de una competición de cuantas repuestas se encierta y se mostrara en la tabla de clasificación</h6>
+                       <div id="juego_peli"></div>`;
     
-    document.getElementById("juegos").innerHTML = titulo;
-}*/
-document.getElementById("minijuego").addEventListener('click', function (){
+    document.getElementById("juego").innerHTML = titulo;
+}
+document.getElementById("minijuegos").addEventListener('click', function (){
     fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/JSON/peliculas.json').then(function(res) {
         return res.json();
     }).then(function(data) {
         console.log(data);
-        //titulo();
+        titulo();
         let juego = "";
         datos = data;
         for (let i = 0; i < data.peliculas.length; i++) {
@@ -204,6 +200,6 @@ document.getElementById("minijuego").addEventListener('click', function (){
                               </div>`;
         }
         juego += `<button id="btn-guardar" class="guardar btn waves-effect waves-light"> Guardar </button>`
-        document.getElementById("juego").innerHTML = juego;
+        document.getElementById("juego_peli").innerHTML = juego;
     });
 });

@@ -72,7 +72,19 @@ class pelis extends DBAbstractModel {
         }
         return $this->rows;
     }
-
+    public function select3($id_pelicula="") {
+        if (!empty($id_pelicula)) {
+            $this->query = "SELECT poster
+                    FROM peliculas
+                    WHERE imdbId = '$id_pelicula'";
+            $this->get_results_from_query();
+        }
+        if (count($this->rows)==1) {
+            foreach ($this->rows[0] as $property => $value)
+                $this->$property = $value;
+        }
+        return $this->rows;
+    }
 
     public function insert($user_data = array()) {
         if (array_key_exists("nombre_pelicula", $user_data)) {

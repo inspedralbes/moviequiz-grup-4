@@ -73,6 +73,17 @@ class valores extends DBAbstractModel {
         return $this->rows;
     }
 
+    public function select3() {
+        $this->query = "SELECT id_pelicula
+                    FROM valoracion
+                    WHERE puntuacion > 4 OR puntuacion = 4";
+        $this->get_results_from_query();
+        if (count($this->rows)==1) {
+            foreach ($this->rows[0] as $property => $value)
+                $this->$property = $value;
+        }
+        return $this->rows;
+    }
 
     public function insert($user_data = array()) {
         if (array_key_exists("id_pelicula", $user_data)) {

@@ -32,50 +32,46 @@
                     </div>
                         <div id="login" class="activa">
                             <input type="text" id="correo" name="correo" placeholder="Tu correo" value="" required/>
-                            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseÃ±a" value="" required/>
-                                <div class="center-align">
-                                    <div id="inicio2"></div>
-                                    <br>
-                                    <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
-                                    <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
-                                </div>
+                            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" value="" required/>
+                            <div class="center-align">
+                                <div id="inicio2"></div>
+                                <br>
+                                <button class="waves-effect waves-light btn" id="botonLogin" type="button">LOGIN</button>
+                                <img src="./web/img/loading.gif" id="loading" height="100px" hidden/>
+                            </div>
                         </div>
+
                     <button class="boton" type="button"><a class="register" href="web/html/registro.html">REGISTRO</a></button>
                 </div>
                 <div class="buscador center-align" class="oculto">
-                        <div class="row">
-                            <form class="col s12">
-                                <input type="text" class="col s5" name="pelis" id="search" placeholder="Busca tu pelÃ­cula favorita" value="">
-                            </form>
-                            <button class="waves-effect waves-light btn" id="enviar">BUSCAR</button>
-                        </div>
+                    <div class="row">
+                        <form class="col s12">
+                            <input type="text" class="col s5" name="pelis" id="search" placeholder="Busca tu película favorita" value="">
+                        </form>
+                        <button class="waves-effect waves-light btn" id="enviar">BUSCAR</button>
+                    </div>
                 </div>
                 <div class="row center">
                     <div id="peliculas"></div>
                 </div>
-                <div id="juegos" class="noactiva">
-                    <button class="waves-effect waves-light btn" id="minijuego">Minijuegos</button>
+                <div class="carousel center-align">
+                    <a class="carousel-item" href="#one!"><img src="https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg"></a>
+                    <a class="carousel-item" href="#two!"><img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg"></a>
+                    <a class="carousel-item" href="#four!"><img src="https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg"></a>
+                    <a class="carousel-item" href="#five!"><img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"></a>
                 </div>
-            </div>
-            <div class="carousel center-align">
-                <a class="carousel-item" href="#one!"><img src="https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg"></a>
-                <a class="carousel-item" href="#two!"><img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"></a>
-                <a class="carousel-item" href="#three!"><img src="https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg"></a>
-                <a class="carousel-item" href="#four!"><img src="https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg"></a>
-                <a class="carousel-item" href="#five!"><img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"></a>
-            </div>
-            <div id="juegos">
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="minijuegos">Minijuegos</a>
-                <div id="modal1" class="modal modal-fixed-footer">
-                    <div class="modal-content" id="juego">
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                <div id="juegos">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="minijuegos">Minijuegos</a>
+                    <div id="modal1" class="modal modal-fixed-footer">
+                        <div class="modal-content" id="juego">
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="carousel" id="portada">
         </div>
     </div>   
     <footer class="page-footer teal darken-3">
