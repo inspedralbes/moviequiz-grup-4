@@ -27,7 +27,6 @@ if (isset($_SESSION['usuario'])) {
                 $arrPeli = array("id_pelicula" => $favoritos[$i]['id_pelicula']);
                 $peli2 = new pelis();
                 $pelicula[$i] = $peli2->select2($arrPeli['id_pelicula']);
-                array_push($array, $pelicula);
             }
         }
         session_start();

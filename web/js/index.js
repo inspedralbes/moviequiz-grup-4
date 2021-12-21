@@ -56,10 +56,8 @@ document.getElementById("botonLogin").addEventListener('click', function(){
 document.getElementById("peliculas").addEventListener("click", function(e) {
     console.log(e.target);
     if (e.target.classList.contains("guardar")) {
-        document.getElementById("formValue").addEventListener("click", function (e) {
-            let puntuacion = e.target.parentElement.querySelector("[name='puntuacion']").value;
-        });
-        let favorito = (e.target.parentElement.querySelector("[name='fav']").checked == true) ? 1 : 0;
+        let puntuacion = e.target.parentElement.querySelector("[name='puntuacion']:checked").value;
+        let favorito = (e.target.parentElement.querySelector("[name='favorito']").checked == true) ? 1 : 0;
         let comentario = e.target.parentElement.querySelector("#comentario").value;
         console.log(favorito + " " + puntuacion);
 
@@ -217,6 +215,6 @@ document.getElementById("minijuego").addEventListener('click', function (){
                               </div>`;
         }
         juego += `<button id="btn-guardar" class="guardar btn waves-effect waves-light"> Guardar </button>`
-        document.getElementById("juegos").innerHTML = juego;
+        document.getElementById("juego").innerHTML = juego;
     });
 });
