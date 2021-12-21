@@ -72,13 +72,11 @@ class pelis extends DBAbstractModel {
         }
         return $this->rows;
     }
-    public function select3($id_pelicula="") {
-        if (!empty($id_pelicula)) {
-            $this->query = "SELECT poster
-                    FROM peliculas
-                    WHERE imdbId = '$id_pelicula'";
-            $this->get_results_from_query();
-        }
+    public function select3() {
+        $this->query = "SELECT *
+                FROM peliculas ORDER BY RAND() LIMIT 5";
+        $this->get_results_from_query();
+
         if (count($this->rows)==1) {
             foreach ($this->rows[0] as $property => $value)
                 $this->$property = $value;
