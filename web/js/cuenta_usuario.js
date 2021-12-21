@@ -15,12 +15,13 @@ fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/peliculas_valoracion.
 }).then(function(data) {
     console.log(data);
     let fav = "";
-    for (let i = 0; i < data.peliculas.length;i++){
+    let len = data.peliculas.length;
+    for (let i = 0; i < len;i++){
         fav += `<img src="${data.peliculas[i][0].poster}">
-                <p>Nombre: ${data.peliculas[i][0].nombre}</p>
+                <p>Nombre: ${data.peliculas[i][0].nombre_pelicula}</p>
                 <p>Año: ${data.peliculas[i][0].anyo}</p>
-                <p>Valoracion: ${data.peliculas[i][0].valoracion}</p>
-                <p>Comentario: ${data.peliculas[i][0].comentario}</p>`;
+                <p>Valoracion: ${data.favoritos[i].puntuacion}</p>
+                <p>Comentario: ${data.favoritos[i].comentario}</p>`;
     }
     document.getElementById("favoritas").innerHTML = fav;
 });

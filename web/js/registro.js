@@ -27,8 +27,8 @@ document.getElementById("registro").addEventListener('click', function(){
         console.log(data);
         document.getElementById("registro").setAttribute("style","display: none;");
         htmlstr = "";
-        htmlstr += `<h1>${data.mensage.message} ${data.nombre} ${data.apellido}</h1>`;
-        document.getElementById("inicio").innerHTML = htmlstr;
+        htmlstr += `<h1>${data.mensage.message} ${data.correo}</h1>`;
+        document.getElementById("registrar").innerHTML = htmlstr;
     }).catch(function(){
         //console.log("Problem!");
     });

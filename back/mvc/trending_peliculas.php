@@ -1,7 +1,7 @@
 <?php
 
-    require_once ('valores.php');
-    require_once ('pelis.php');
+    require_once('valores.php');
+    require_once('pelis.php');
 
     $tren = new valores();
     $puntuacion = $tren->select3();

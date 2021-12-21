@@ -10,7 +10,7 @@
         //$user2->select($newUser["correo"]);
 
         session_start();
-        $arr = array('exito' => true, 'mensage' => $user2, 'nombre' => $_POST['nombre'], 'apellido' => $_POST['apellido']);
+        $arr = array('exito' => true, 'mensage' => $user2, 'nombre' => $_POST['nombre'], 'apellido' => $_POST['apellido'], 'correo' => $_POST['correo']);
         $myJSON = json_encode($arr);
         echo $myJSON;
     }

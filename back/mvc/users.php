@@ -60,26 +60,10 @@ class users extends DBAbstractModel {
       return $this->rows;
   }
 
-    public function select_contra($contrasena="") {
-        if (!empty($contrasena)) {
-            $this->query = "SELECT *
-                    FROM users
-                    WHERE contrasena = '$contrasena'";
-            $this->get_results_from_query();
-        }
-        // Any register selected
-        if (count($this->rows)==1) {
-            foreach ($this->rows[0] as $property => $value)
-                $this->$property = $value;
-        }
-        return $this->rows;
-    }
-  
-
   public function insert($user_data = array()) {
     if (array_key_exists("correo", $user_data)) {
       $result = $this->select($user_data["correo"]);
-      if (!empty($result)) {
+      if (empty($result)) {
         foreach ($user_data as $field => $value)
           $$field = $value;
         $this->query="INSERT INTO users (nombre, apellido, correo, contrasena)

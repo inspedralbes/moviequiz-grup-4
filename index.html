@@ -77,6 +77,7 @@
                         <button class="waves-effect waves-light btn" id="enviar">BUSCAR</button>
                     </div>
                 </div>
+                <br>
                 <div class="row center">
                     <div id="peliculas"></div>
                 </div>
@@ -132,14 +133,19 @@
     <script src="./web/js/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, {});
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems, {
             indicators : true,
         });
+
         let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
         slideTime = 3000,
         activeClass = "active";
-
         setInterval(() => {
             indicatorItems.forEach(el => {
                 if (el.classList.contains(activeClass)) {
@@ -152,10 +158,6 @@
                 }
             });
         }, slideTime);
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            var modal1 = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(modal1, {});
         });
     </script>
 </body>

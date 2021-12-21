@@ -4,9 +4,15 @@ fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/trending_peliculas.ph
     console.log(data);
     let tren = "";
     for(let i = 0;i < data.trending.length;i++) {
-        tren += `<img src="${data.trending[i][0].poster}">`;
+        tren += `<img src="${data.trending[i][0].poster}"> `;
     }
     document.getElementById("trending").innerHTML = tren;
+});
+
+fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/partida.php').then(function(res) {
+    return res.json();
+}).then(function(data) {
+    console.log(data);
 });
 
 document.getElementById("botonLogin").addEventListener('click', function(){
@@ -149,8 +155,6 @@ document.getElementById("enviar").addEventListener("click", function() {
                     </div>`;
         }
         document.getElementById("peliculas").innerHTML = pelis;
-        var elems = document.querySelectorAll('.modal');
-        M.Modal.init(elems,{});
     }).catch(function() {
         console.log("problema!");
     });
@@ -211,12 +215,11 @@ document.getElementById("minijuegos").addEventListener('click', function (e){
         document.getElementById("btn-guardar").addEventListener("click",function(e){
             console.log(e.target);
 
-            let puntuacion0 = e.target.parentElement.parentElement.querySelector("[name='puntuacion0']:checked").value;
-            let puntuacion1 = e.target.parentElement.parentElement.querySelector("[name='puntuacion1']:checked").value;
-            let puntuacion2 = e.target.parentElement.parentElement.querySelector("[name='puntuacion2']:checked").value;
-            let puntuacion3 = e.target.parentElement.parentElement.querySelector("[name='puntuacion3']:checked").value;
-            let puntuacion4 = e.target.parentElement.parentElement.querySelector("[name='puntuacion3']:checked").value;
-            //e.target.innerHTML = "check";
+            let puntuacion0 = document.querySelector("[name='puntuacion0']:checked").value;
+            let puntuacion1 = document.querySelector("[name='puntuacion1']:checked").value;
+            let puntuacion2 = document.querySelector("[name='puntuacion2']:checked").value;
+            let puntuacion3 = document.querySelector("[name='puntuacion3']:checked").value;
+            let puntuacion4 = document.querySelector("[name='puntuacion3']:checked").value;
             console.log(puntuacion1);
 
             const datosEnvio = new FormData();
@@ -231,9 +234,4 @@ document.getElementById("minijuegos").addEventListener('click', function (e){
             });
         });
     });
-});
-fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/partida.php').then(function(res) {
-    return res.json();
-}).then(function(data) {
-    console.log(data);
 });
