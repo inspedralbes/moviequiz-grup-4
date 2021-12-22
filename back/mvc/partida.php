@@ -19,7 +19,7 @@
 
         $partida[$i]['id_pelicula'] = $peliculas[$i]['imdbId'];
         $partida[$i]['Nombre_pelicula'] = $peliculas[$i]['nombre_pelicula'];
-        $partida[$i]['poster'] = $peliculas[$i]['poster'];
+        $partida[$i]['Poster'] = $peliculas[$i]['poster'];
         $partida[$i]['Choice1'] = $anyo[$pos[0]];
         $partida[$i]['Choice2'] = $anyo[$pos[1]];
         $partida[$i]['Choice3'] = $anyo[$pos[2]];
@@ -27,6 +27,5 @@
     }
     session_start();
     $arr = array("id_Partida" => 1, "Peliculas" => $partida);
-    //$arr = array("id_partida" => 10, "Nombre de la partida" => "QuizGame", "Peliculas" => $peliculas, "Año1" => $anyos[0].$anyo, "Año1" => $anyos[0].$anyo, "Año1" => $anyos[0].$anyo, "Año1" => $anyos[0].$anyo);
     $myJSON = json_encode($arr);
     echo $myJSON;

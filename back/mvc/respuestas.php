@@ -1,10 +1,7 @@
 <?php
     require_once('pelis.php');
 
-    $resp = array($_POST['puntuacion1'], $_POST['puntuacion2'], $_POST['puntuacion3'], $_POST['puntuacion4']);
-    print_r($resp);
-    /*$pelis = new pelis();
-    $peliculas = $pelis->select();*/
+    $resp = array($_POST['respuestas0'], $_POST['respuestas1'], $_POST['respuestas2'], $_POST['respuestas3'], $_POST['respuestas4']);
 
     session_start();
     $arr = array('exito' => true, 'pelicula' => $resp);

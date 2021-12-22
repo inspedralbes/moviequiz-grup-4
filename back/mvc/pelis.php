@@ -1,7 +1,7 @@
 <?php
 
 // magic constant
-require_once ("DBAbstractModel.php");//modificar
+require_once ("DBAbstractModel.php");
 
 class pelis extends DBAbstractModel {
 
@@ -24,8 +24,6 @@ class pelis extends DBAbstractModel {
     function __destruct() {
     }
 
-    //select dels camps passats de tots els registres
-    //stored in $rows property
     public function selectAll($fields=array()) {
 
         $this->query="SELECT ";
@@ -38,7 +36,6 @@ class pelis extends DBAbstractModel {
             else $this->query .= ", " . $fields[$i];
         }
         $this->query .= " FROM peliculas";
-        // $this->query = "SELECT * FROM usuario";
         $this->get_results_from_query();
         return $this->rows;
 
@@ -51,7 +48,7 @@ class pelis extends DBAbstractModel {
                     WHERE nombre_pelicula = '$nombre_pelicula'";
             $this->get_results_from_query();
         }
-        // Any register selected
+
         if (count($this->rows)==1) {
             foreach ($this->rows[0] as $property => $value)
                 $this->$property = $value;

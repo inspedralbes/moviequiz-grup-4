@@ -1,7 +1,7 @@
 <?php
 
 // magic constant
-require_once ("DBAbstractModel.php");//modificar
+require_once ("DBAbstractModel.php");
 
 class valores extends DBAbstractModel {
 
@@ -39,7 +39,6 @@ class valores extends DBAbstractModel {
             else $this->query .= ", " . $fields[$i];
         }
         $this->query .= " FROM valoracion";
-        // $this->query = "SELECT * FROM usuario";
         $this->get_results_from_query();
         return $this->rows;
 
@@ -51,7 +50,7 @@ class valores extends DBAbstractModel {
                     WHERE id_pelicula = '$id_pelicula'";
             $this->get_results_from_query();
         }
-        // Any register selected
+
         if (count($this->rows)==1) {
             foreach ($this->rows[0] as $property => $value)
                 $this->$property = $value;

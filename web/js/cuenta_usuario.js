@@ -39,5 +39,8 @@ document.getElementById("btn-contrasena").addEventListener('click', function (){
         return res.json();
     }).then(function(data) {
         console.log(data);
+        let pass = "";
+        pass += `<p class="green-text accent-3">${data.contrasena.message}</p>`;
+        document.getElementById("mensaje").innerHTML = pass;
     });
 });

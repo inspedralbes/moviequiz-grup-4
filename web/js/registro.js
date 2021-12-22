@@ -15,9 +15,6 @@ document.getElementById("registro").addEventListener('click', function(){
     datosEnvio.append('correo',c);
     datosEnvio.append('contrasena',contr);
 
-    //document.getElementById("botonLogin").setAttribute("style","display: none;");
-    //document.getElementById("loading").removeAttribute("hidden");
-
     fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/registro.php',{
         method: 'POST',
         body: datosEnvio
@@ -30,6 +27,6 @@ document.getElementById("registro").addEventListener('click', function(){
         htmlstr += `<h1>${data.mensage.message} ${data.correo}</h1>`;
         document.getElementById("registrar").innerHTML = htmlstr;
     }).catch(function(){
-        //console.log("Problem!");
+        console.log("Problem!");
     });
 });

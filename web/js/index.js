@@ -44,14 +44,12 @@ document.getElementById("botonLogin").addEventListener('click', function(){
                 htmlstr = "";
                 htmlstr += `<h5>Bienvenido de nuevo ${data.nombre} ${data.apellido}</h5>`;
                 document.getElementById("inicio").innerHTML = htmlstr;
-                //document.getElementById("btn-guardar").removeAttribute("disabled");
             } else {
                 document.getElementById("botonLogin").removeAttribute("style", "display: none;");
                 document.getElementById("loading").setAttribute("style", "display: none;");
                 htmlstr = "";
                 htmlstr += `<h5 style="color: red">Vuelva ha escribir otra vez</h5>`;
                 document.getElementById("inicio2").innerHTML = htmlstr;
-                //document.getElementById("btn-guardar").setAttribute("disabled");
             }
     }).catch(function(){
         console.log("Problema!");
@@ -60,30 +58,32 @@ document.getElementById("botonLogin").addEventListener('click', function(){
 
 document.getElementById("peliculas").addEventListener("click", function(e) {
     console.log(e.target);
-    if (e.target.classList.contains("guardar")) {
-        let puntuacion = e.target.parentElement.querySelector("[name='puntuacion']:checked").value;
-        let favorito = (e.target.parentElement.querySelector("[name='favorito']").checked == true) ? 1 : 0;
-        let comentario = e.target.parentElement.querySelector("#comentario").value;
-        console.log(favorito + " " + puntuacion);
+    if(document.getElementById("info-usuari").innerHTML != "") {
+        if (e.target.classList.contains("guardar")) {
+            let puntuacion = e.target.parentElement.querySelector("[name='puntuacion']:checked").value;
+            let favorito = (e.target.parentElement.querySelector("[name='favorito']").checked == true) ? 1 : 0;
+            let comentario = e.target.parentElement.querySelector("#comentario").value;
+            console.log(favorito + " " + puntuacion);
 
-        const npeli = e.target.getAttribute("num");
-        console.log("ID peli " + npeli);
-        const datosPeli = datos.Search[npeli];
-        //e.target.innerHTML = "check";
+            const npeli = e.target.getAttribute("num");
+            console.log("ID peli " + npeli);
+            const datosPeli = datos.Search[npeli];
 
-        const datosEnvio = new FormData();
-        datosEnvio.append('favorito', favorito);
-        datosEnvio.append('comentario', comentario);
-        datosEnvio.append('puntuacion', puntuacion);
-        datosEnvio.append('imdbId', datosPeli.imdbID);
-        datosEnvio.append('nombre_pelicula', datosPeli.Title);
-        datosEnvio.append('poster', datosPeli.Poster);
-        datosEnvio.append('anyo', datosPeli.Year);
-        fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/peliculas_valoracion.php', {
-            method: 'POST',
-            body: datosEnvio
-        });
+            const datosEnvio = new FormData();
+            datosEnvio.append('favorito', favorito);
+            datosEnvio.append('comentario', comentario);
+            datosEnvio.append('puntuacion', puntuacion);
+            datosEnvio.append('imdbId', datosPeli.imdbID);
+            datosEnvio.append('nombre_pelicula', datosPeli.Title);
+            datosEnvio.append('poster', datosPeli.Poster);
+            datosEnvio.append('anyo', datosPeli.Year);
+            fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/peliculas_valoracion.php', {
+                method: 'POST',
+                body: datosEnvio
+            });
+        }
     }
+    else console.log("No funciona inicio");
 });
 
 document.getElementById("enviar").addEventListener("click", function() {
@@ -108,7 +108,7 @@ document.getElementById("enviar").addEventListener("click", function() {
                             </div>
                             <div id="valor${i}" class="modal">
                                 <div class="modal-content">
-                                    <h4 class="center-align cyan-text text-darken-3">${datos.Search[i].Title} (${datos.Search[i].Year})</h4>
+                                    <h4 class="center-align teal accent-4" style="padding-bottom: 5px">${datos.Search[i].Title} (${datos.Search[i].Year})</h4>
                                     </br>
                                 <div>
                                     <label>
@@ -145,8 +145,7 @@ document.getElementById("enviar").addEventListener("click", function() {
                                     <textarea id="comentario" class="materialize-textarea" data-length="200"></textarea>
                                     <label for="comentario">Comentario</label>
                                 </div>
-                                <button num="${i}" id="btn-guardar" class="guardar btn waves-effect waves-light"> Guardar </button>
-                                <div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>
+                                <button num="${i}" id="btn-guardar" class="guardar btn waves-effect waves-light">Guardar</button>                             
                             </div>
                             <div class="modal-footer">
                                 <a href="#!" class="btn modal-close red"><i class="material-icons">close</i></a>
@@ -155,55 +154,57 @@ document.getElementById("enviar").addEventListener("click", function() {
                     </div>`;
         }
         document.getElementById("peliculas").innerHTML = pelis;
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {});
     }).catch(function() {
         console.log("problema!");
     });
 });
 
 function titulo() {
-    let titulo = `<center><h4>Minijuego</h4>
+    let titulo = `<div class="teal accent-4" style="padding-bottom: 5px"><center><h4>Minijuego</h4>
                        <h6>Este minijuego trata de una competición de cuantas repuestas se encierta y se mostrara en la tabla de clasificación</h6></center>
+                       </div><br>
                        <div id="juego_peli"></div>`;
     
     document.getElementById("juego").innerHTML = titulo;
 }
 
 document.getElementById("minijuegos").addEventListener('click', function (e){
-    fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/JSON/output_generar_partida.json').then(function(res) {
+    fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/partida.php').then(function(res) {
         return res.json();
     }).then(function(data) {
         console.log(data);
         titulo();
         let juego = "";
-        datos = data;
-        for (let i = 0; i < data.peliculas.length; i++) {
+        for (let i = 0; i < data.Peliculas.length; i++) {
             juego += `<div class="row black-text">
                                 <div class="col s5">
-                                    <img class="center" src="${data.peliculas[i].Poster}">
+                                    <img class="center" src="${data.Peliculas[i].Poster}">
                                 </div>
                                 <div class="col s5 center">
-                                    <h4 class="black-text center" style="margin: 4%; margin-top: 10%">${data.peliculas[i].Nombre}</h4>
+                                    <h4 class="black-text center" style="margin: 4%; margin-top: 10%">${data.Peliculas[i].Nombre_pelicula}</h4>
                                 </div>
                                 <div class="col s5 center white-text">
                                     <div name="formValue">
                                         <label>
-                                            <input name="puntuacion${i}" type="radio" value="${data.peliculas[i].choice1}"/>
-                                            <span>${data.peliculas[i].choice1}</span>
+                                            <input name="respuestas${i}" type="radio" value="${data.Peliculas[i].Choice1}"/>
+                                            <span>${data.Peliculas[i].Choice1}</span>
                                         </label>
                                         <br>
                                         <label>
-                                            <input name="puntuacion${i}" type="radio" value="${data.peliculas[i].choice2}"/>
-                                            <span>${data.peliculas[i].choice2}</span>
+                                            <input name="respuestas${i}" type="radio" value="${data.Peliculas[i].Choice2}"/>
+                                            <span>${data.Peliculas[i].Choice2}</span>
                                         </label>
                                         <br>
                                         <label>
-                                            <input name="puntuacion${i}" type="radio" value="${data.peliculas[i].choice3}"/>
-                                            <span>${data.peliculas[i].choice3}</span>
+                                            <input name="respuestas${i}" type="radio" value="${data.Peliculas[i].Choice3}"/>
+                                            <span>${data.Peliculas[i].Choice3}</span>
                                         </label>
                                         <br>
                                         <label>
-                                            <input name="puntuacion${i}" type="radio" value="${data.peliculas[i].choice4}"/>
-                                            <span>${data.peliculas[i].choice4}</span>
+                                            <input name="respuestas${i}" type="radio" value="${data.Peliculas[i].Choice4}"/>
+                                            <span>${data.Peliculas[i].Choice4}</span>
                                         </label>
                                     </div>
                                 </div>
@@ -215,22 +216,25 @@ document.getElementById("minijuegos").addEventListener('click', function (e){
         document.getElementById("btn-guardar").addEventListener("click",function(e){
             console.log(e.target);
 
-            let puntuacion0 = document.querySelector("[name='puntuacion0']:checked").value;
-            let puntuacion1 = document.querySelector("[name='puntuacion1']:checked").value;
-            let puntuacion2 = document.querySelector("[name='puntuacion2']:checked").value;
-            let puntuacion3 = document.querySelector("[name='puntuacion3']:checked").value;
-            let puntuacion4 = document.querySelector("[name='puntuacion3']:checked").value;
-            console.log(puntuacion1);
+            let res0 = document.querySelector("[name='respuestas0']:checked").value;
+            let res1 = document.querySelector("[name='respuestas1']:checked").value;
+            let res2 = document.querySelector("[name='respuestas2']:checked").value;
+            let res3 = document.querySelector("[name='respuestas3']:checked").value;
+            let res4 = document.querySelector("[name='respuestas4']:checked").value;
 
             const datosEnvio = new FormData();
-            datosEnvio.append('1', puntuacion0);
-            datosEnvio.append('2', puntuacion1);
-            datosEnvio.append('3', puntuacion2);
-            datosEnvio.append('4', puntuacion3);
-            datosEnvio.append('5', puntuacion4);
+            datosEnvio.append('respuestas0', res0);
+            datosEnvio.append('respuestas1', res1);
+            datosEnvio.append('respuestas2', res2);
+            datosEnvio.append('respuestas3', res3);
+            datosEnvio.append('respuestas4', res4);
             fetch('http://moviequiz4.alumnes.inspedralbes.cat/back/mvc/respuestas.php', {
                 method: 'POST',
                 body: datosEnvio
+            }).then(function (res){
+                return res.json();
+            }).then(function(data) {
+                console.log(data);
             });
         });
     });
